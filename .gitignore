@@ -1,0 +1,7 @@
+/.venv
+/_learning
+
+manage.py
+db.sqlite3
+
+.gitignote
