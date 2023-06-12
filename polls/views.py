@@ -36,7 +36,7 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     """    
-    Display an individual :model:`polls.Question`.
+    Display an individual :model:`polls.Question`
 
     **Context**
 
