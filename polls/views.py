@@ -9,6 +9,20 @@ from .models import Choice, Question
 
 
 class IndexView(generic.ListView):
+    """
+    Class responds to website pools/"" HttpResponse
+
+    Display a list :model:`polls.Question`.
+
+    **Context**
+
+    ``mymodel``
+        An instance of :model:`polls.Question`.
+
+    **Template:**
+
+    :template:`polls/index.html`
+    """
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
 
@@ -21,6 +35,18 @@ class IndexView(generic.ListView):
     
 
 class DetailView(generic.DetailView):
+    """    
+    Display an individual :model:`polls.Question`.
+
+    **Context**
+
+    ``mymodel``
+        An instance of :model:`polls.Question`.
+
+    **Template:**
+
+    :template:`polls/detail.html`
+    """
     model = Question
     template_name = "polls/detail.html"
 
@@ -32,11 +58,29 @@ class DetailView(generic.DetailView):
 
 
 class ResultsView(generic.DetailView):
+    """    
+    Display a vote result for imdividual :model:`polls.Question`.
+
+    **Template:**
+
+    :template:`polls/detail.html`
+    """
     model = Question
     template_name = "polls/results.html"
 
 
 def vote(request, question_id):
+    """    
+    Прикажува форма за гласање
+
+    Ако има грешка redirekt to:
+
+    :template:`polls/detail.html`
+
+    If success redirect to:
+
+    :template:`polls/results.html`
+    """
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
