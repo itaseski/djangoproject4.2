@@ -1,7 +1,22 @@
-/.venv
-/_learning
-
+####
+# Django 
+####
+*.log
+*.pot
+*.pyc
+__pycache__/
 manage.py
 db.sqlite3
 
-.gitignote
+.gitignore
+
+####
+# Environments
+####
+.venv/
+
+####
+my folders and files
+####
+/_learning
+

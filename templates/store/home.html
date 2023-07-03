@@ -1,0 +1,35 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>All</title>
+{% endblock %}
+
+{% block content%}
+<div class="container">
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3 mt-5">
+    {% for product in products %}
+    <div class="col">
+      <div class="card shadow-sm">
+        <img class="img-fluid" src="{{ product.image.url }}" alt="Book cover image">
+        <div class="card-body">
+          <p class="card-text">
+            <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+            <small class="text-body-secondary">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+
+</div>
+{% endblock %}
